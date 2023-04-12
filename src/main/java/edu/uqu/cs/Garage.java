@@ -21,7 +21,7 @@ public class Garage{
      * private classType [] varName = new classType[size];
      *
      */
-
+    private Car[] cars =new Car[3];
     /************ Part 2 **************/
     /**
      * Decalre a static/class variable named countCars
@@ -31,7 +31,8 @@ public class Garage{
      * public dataType varName= value;
      *
      */
-
+     
+    public static int countcars=0;
     /************ Part 3 **************/
     /**
      * Define a default constructor to create
@@ -45,7 +46,10 @@ public class Garage{
      *     }
      *}
      */
-
+public Garage(){
+    for (int i=0;i<cars.length;i++)
+      cars[i]=new Car();
+}
     /************ Part 4 **************/
     /**
      * Define addCar(String parameter) that adds a new car (by model) to the garage 
@@ -59,7 +63,18 @@ public class Garage{
      * Syntax:
      * public void methodName(String m)
      */
-
+    public void addcar(String m){
+        for(int i =0;i<cars.length&&countcars<4;i++){
+            if(m.equalsIgnoreCase(cars[i].getmodel()))
+                return;
+            if(cars[i].getmodel().equals(" ")){
+                cars[i].setmodel(m);
+                cars[i].moveCarIn();
+                countcars++;
+                break;
+            }
+        }
+    }
 
     /************ Part 5 **************/
     /**
@@ -71,7 +86,15 @@ public class Garage{
      * public void methodName(String m)
      *
      */
-
+    public void moveout(String n){
+     for(int i=0;i<cars.length;i++){
+           if(n.equalsIgnoreCase(cars[i].getmodel())){
+               cars[i].moveCarOut();
+               cars[i].setmodel(" ");
+               countcars--;
+           }
+           
+   }}
 
 
     /************ Part 6 **************/
@@ -84,7 +107,7 @@ public class Garage{
      * public void methodName(String m)
      *
      */
-
+     ///// i didn't understsnd that methd, i thougt that method 4 and 5 are enough./////
 
     /************ Part 7 **************/
     /**
@@ -96,6 +119,9 @@ public class Garage{
      *
      */
 
-
+   public void listcars(){
+    for(int i =0;i<cars.length;i++)
+    System.out.println(cars[i].getmodel());
+   }
 
 }

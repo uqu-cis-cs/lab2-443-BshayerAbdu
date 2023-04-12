@@ -21,6 +21,8 @@ public class Car{
      * private dataType name;
      *
      */
+    private String model ;
+    private boolean inoutgarage;
 
     /************ Part 2 **************/
     /**
@@ -33,7 +35,10 @@ public class Car{
      *      //body
      * }
      */
-
+    public Car(){
+        model = " ";
+        inoutgarage=false;
+    }
     /************ Part 3 **************/
     /**
      * Define all getter methods below
@@ -43,7 +48,12 @@ public class Car{
      *      return this.InstanceVariableName;
      * }
      */
-
+    public String getmodel(){
+        return model;
+    }
+    public boolean getinoutgarage(){
+        return inoutgarage;
+    }
 
     /************ Part 4 **************/
     /**
@@ -54,7 +64,12 @@ public class Car{
      * }
      *
      */
-
+    public void setmodel(String m){
+          model=m;
+    }
+    public void setinoutgarage(boolean inout){
+        inoutgarage=inout;
+    }
 
     /************ Part 5 **************/
     /**
@@ -64,6 +79,12 @@ public class Car{
      *
      */
 
-
+  public void moveCarOut(){
+    setinoutgarage(false);
+  }
+  public void moveCarIn(){
+    setinoutgarage(true);
+  }
+  
 
 }
